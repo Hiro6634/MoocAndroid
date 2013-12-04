@@ -4,7 +4,7 @@ package com.suyama.hiro.mall_k.activities;
 
 
 import com.suyama.hiro.mall_k.R;
-import com.suyama.hiro.mall_k.Shop;
+import com.suyama.hiro.mall_k.Shops;
 
 import android.net.Uri;
 import android.os.Bundle;
@@ -33,11 +33,11 @@ public class ShowImageActivity extends Activity {
 		
 		// Actualizo los valores a mostar. La imagen es fija para todos los casos, no asi el comentario 
 		Intent intentInfo = getIntent();
-		imageId = Integer.parseInt(intentInfo.getStringExtra(Shop.IMAGE));
-		imageView.setImageResource(intentInfo.getStringExtra(Shop.IMAGE).equals("")?
+		imageId = Integer.parseInt(intentInfo.getStringExtra(Shops.IMAGE));
+		imageView.setImageResource(intentInfo.getStringExtra(Shops.IMAGE).equals("")?
 					android.R.drawable.ic_menu_gallery:
 					imageId);
-		imageComment.setText(intentInfo.getStringExtra(Shop.IMAGECOMMENT));
+		imageComment.setText(intentInfo.getStringExtra(Shops.IMAGECOMMENT));
 		
 	}
 

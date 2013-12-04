@@ -3,7 +3,7 @@ package com.suyama.hiro.mall_k.activities;
 import java.util.HashMap;
 
 import com.suyama.hiro.mall_k.R;
-import com.suyama.hiro.mall_k.Shop;
+import com.suyama.hiro.mall_k.Shops;
 
 
 import android.net.Uri;
@@ -54,13 +54,13 @@ public class ShopDetailActivity extends Activity {
 		shopInfo = (HashMap<String, String>)intent.getSerializableExtra("map");
 		
 		// Cargamos los datos variables en el Layout
-		nameTextView.setText(shopInfo.get(Shop.NAME));
-		descriptionTextView.setText(shopInfo.get(Shop.DESCRIPTION));
-		addressTextView.setText(shopInfo.get(Shop.ADDRESS));
-		webTextView.setText(shopInfo.get(Shop.WEBSITE));
-		emailTextView.setText(shopInfo.get(Shop.EMAIL));
-		phoneTextView.setText(shopInfo.get(Shop.PHONE));
-		scheduleTextView.setText(shopInfo.get(Shop.SCHEDULE));
+		nameTextView.setText(shopInfo.get(Shops.NAME));
+		descriptionTextView.setText(shopInfo.get(Shops.DESCRIPTION));
+		addressTextView.setText(shopInfo.get(Shops.ADDRESS));
+		webTextView.setText(shopInfo.get(Shops.WEBSITE));
+		emailTextView.setText(shopInfo.get(Shops.EMAIL));
+		phoneTextView.setText(shopInfo.get(Shops.PHONE));
+		scheduleTextView.setText(shopInfo.get(Shops.SCHEDULE));
 
 		// Aplicamos para que se generen los links
 		Linkify.addLinks(phoneTextView, Linkify.ALL);
@@ -74,7 +74,7 @@ public class ShopDetailActivity extends Activity {
 			public void onClick(View v) {
 				// Lanzamos el discador con el número de la tienda
 				Intent callDial = new Intent(Intent.ACTION_DIAL);
-				callDial.setData(Uri.parse("tel:" + shopInfo.get(Shop.PHONE)));
+				callDial.setData(Uri.parse("tel:" + shopInfo.get(Shops.PHONE)));
 				startActivity(callDial);
 			}
 		});
@@ -86,8 +86,8 @@ public class ShopDetailActivity extends Activity {
 			public void onClick(View v) {
 				// Lanzamos la Actividad que muestra la imagen. Si bien se pasa como dato el path a una imagen para este ejercicio se muestar una imagen fija para todos igual.
 				Intent showImage = new Intent( getApplicationContext(), ShowImageActivity.class);
-				showImage.putExtra(Shop.IMAGE, shopInfo.get(Shop.IMAGE));
-				showImage.putExtra(Shop.IMAGECOMMENT, shopInfo.get(Shop.IMAGECOMMENT));
+				showImage.putExtra(Shops.IMAGE, shopInfo.get(Shops.IMAGE));
+				showImage.putExtra(Shops.IMAGECOMMENT, shopInfo.get(Shops.IMAGECOMMENT));
 				
 				startActivity(showImage);
 			}
